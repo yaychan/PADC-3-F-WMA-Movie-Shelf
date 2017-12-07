@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:elevation="4dp">
+
+    <RelativeLayout
+        android:id="@+id/rl_movie_shelf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/iv_movie_poster"
+            android:layout_width="160dp"
+            android:layout_height="240dp"
+            android:layout_marginRight="8dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/it_movie_poster" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_favorite_black_48dp"
+            android:backgroundTint="@color/accent"
+            android:gravity="center"
+            android:text="7.4"
+            android:textColor="@color/icons"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/btn_fullscreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_fullscreen_white_48dp"
+             android:layout_marginTop="190dp"
+            android:layout_marginLeft="120dp"/>
+
+        <TextView
+            android:id="@+id/tv_movie_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/iv_movie_poster"
+            android:text="It"
+            android:textColor="@color/primary_text"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/tv_movie_genre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_movie_title"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@id/iv_movie_poster"
+            android:text="(Drama, Horror, Thriller)"
+            android:textColor="@color/primary_text"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_popularity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_movie_genre"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@id/iv_movie_poster"
+            android:text="Current Popularity"
+            android:textColor="@color/primary_text"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_popularity"
+            android:layout_marginTop="4dp"
+            android:layout_toRightOf="@id/iv_movie_poster"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_star_black_24dp"
+                android:tint="#ffff00" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_star_black_24dp"
+                android:tint="#ffff00" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_star_black_24dp"
+                android:tint="#ffff00" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_star_black_24dp"
+                android:tint="#ffff00" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_star_black_24dp"
+                android:tint="#ffff00" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_movie_overview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/ll_rating"
+            android:layout_marginTop="54dp"
+            android:backgroundTint="@color/primary"
+            android:text="Movie Overview"
+            android:textAllCaps="false"
+            android:textColor="@color/icons"
+
+
+            />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
