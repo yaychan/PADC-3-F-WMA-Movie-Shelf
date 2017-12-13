@@ -22,6 +22,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="4dp"
             android:background="@drawable/ic_favorite_black_48dp"
             android:backgroundTint="@color/accent"
             android:gravity="center"
@@ -33,9 +34,10 @@
             android:id="@+id/btn_fullscreen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_fullscreen_white_48dp"
-             android:layout_marginTop="190dp"
-            android:layout_marginLeft="120dp"/>
+            android:layout_alignBottom="@id/iv_movie_poster"
+            android:layout_alignRight="@id/iv_movie_poster"
+            android:layout_margin="4dp"
+            android:src="@drawable/ic_fullscreen_white_48dp" />
 
         <TextView
             android:id="@+id/tv_movie_title"
@@ -62,67 +64,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_movie_genre"
+
             android:layout_marginTop="8dp"
             android:layout_toRightOf="@id/iv_movie_poster"
             android:text="Current Popularity"
             android:textColor="@color/primary_text"
             android:textSize="16sp" />
 
-        <LinearLayout
-            android:id="@+id/ll_rating"
+        <RatingBar
+            android:id="@+id/rb_rating"
+            style="?android:attr/ratingBarStyleIndicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_popularity"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             android:layout_toRightOf="@id/iv_movie_poster"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_star_black_24dp"
-                android:tint="#ffff00" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_star_black_24dp"
-                android:tint="#ffff00" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_star_black_24dp"
-                android:tint="#ffff00" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_star_black_24dp"
-                android:tint="#ffff00" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_star_black_24dp"
-                android:tint="#ffff00" />
-
-        </LinearLayout>
+            android:rating="4.5"
+            android:stepSize="0.5" />
 
         <Button
             android:id="@+id/btn_movie_overview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/iv_movie_poster"
             android:layout_alignParentRight="true"
-            android:layout_below="@id/ll_rating"
-            android:layout_marginTop="54dp"
+            android:layout_margin="8dp"
             android:backgroundTint="@color/primary"
+            android:padding="16dp"
             android:text="Movie Overview"
             android:textAllCaps="false"
-            android:textColor="@color/icons"
-
-
-            />
+            android:textColor="@color/icons" />
 
     </RelativeLayout>
 

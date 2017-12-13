@@ -1,5 +1,7 @@
 package xyz.winmyataung.movie_shelf.activities;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,6 +12,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.RelativeLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,6 +22,11 @@ import xyz.winmyataung.movie_shelf.R;
 import xyz.winmyataung.movie_shelf.adapters.MoviesAdapter;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static Intent newIntent(Context context){
+        Intent intent=new Intent(context,MainActivity.class );
+        return intent;
+    }
 
     @BindView(R.id.rv_movies)
     RecyclerView rvMovies;
@@ -28,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.fab)
     FloatingActionButton floatingActionButton;
 
+    @BindView(R.id.rl_movie_details)
+    RelativeLayout rlMovieDetails;
+
+
     private MoviesAdapter moviesAdapter;
 
     @Override
@@ -35,6 +48,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this, this);
+
+       /* btnMovieOverview.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view) {
+                Intent intent = MoviesDetailsActivity.newIntent(getApplicationContext());
+                startActivity(intent);
+            }
+        });*/
 
         moviesAdapter = new MoviesAdapter();
 
