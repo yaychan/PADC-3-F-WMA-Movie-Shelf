@@ -5,6 +5,8 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
+    <!--change movie trailer and genre to RecyclerView -->
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
@@ -90,7 +92,7 @@
                         android:id="@+id/tv_movie_description_details"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="In a small town in Maine, seven children known as The Losers Club come face to face with life problems, bullies and a monster that takes the shape of a clown called Pennywise."
+                        android:text="In a small town in Maine, seven children known as The Losers Club come face to face with life problems, bullies and a monster that takes the shape of a clown called Pennywise In a small town in Maine, seven children known as The Losers Club come face to face with life problems, bullies and a monster that takes the shape of a clown called Pennywise."
                         android:textColor="@color/white_full" />
 
                 </android.support.v4.widget.NestedScrollView>
@@ -103,8 +105,8 @@
                     android:layout_below="@id/fl_poster_rating_fullscreen"
                     android:layout_marginLeft="24dp"
                     android:layout_marginTop="8dp"
-                    android:numStars="15"
-                    android:rating="15"
+                    android:numStars="5"
+                    android:rating="5"
                     android:stepSize="0.5"
                     android:theme="@style/RatingBar" />
 
@@ -146,28 +148,19 @@
             android:layout_height="match_parent"
             android:background="@color/accent">
 
-            <TableLayout
-                android:id="@+id/tl_movie_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#FFFF00">
-
-                <TableRow android:layout_width="match_parent">
-
-                    <TextView
-                        android:id="@+id/t_movie_name"
-                        android:layout_marginLeft="12dp"
-                        android:text="It"
-                        android:textSize="36sp" />
-                </TableRow>
-
-            </TableLayout>
+          <TextView
+              android:id="@+id/tv_movie_title"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="It"
+              android:textSize="32sp"
+              android:background="#FF0"/>
 
             <LinearLayout
                 android:id="@+id/ll_movie_genre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tl_movie_title"
+                android:layout_below="@id/tv_movie_title"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:orientation="horizontal">
@@ -238,7 +231,7 @@
                  android:src="@drawable/it_background_image" />-->
             <android.support.v4.view.ViewPager
                 android:id="@+id/vp_movies_trailers"
-                android:layout_width="360dp"
+                android:layout_width="wrap_content"
                 android:layout_height="180dp"
                 android:layout_alignLeft="@id/tv_movie_length"
                 android:layout_below="@id/tv_movie_length"
@@ -262,14 +255,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@id/ll_movie_genre"
+               android:layout_marginLeft="16dp"
                 android:layout_below="@id/tv_review_title"
-                android:layout_marginRight="8dp"
+                android:layout_marginRight="16dp"
                 android:layout_marginTop="4dp"
                 android:lineSpacingMultiplier="1.2"
                 android:text="@string/long_reviews"
                 android:textColor="@color/white_full"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp"/>
 
 
         </RelativeLayout>

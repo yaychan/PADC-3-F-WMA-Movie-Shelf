@@ -12,7 +12,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import butterknife.BindView;
@@ -20,8 +19,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import xyz.winmyataung.movie_shelf.R;
 import xyz.winmyataung.movie_shelf.adapters.MoviesAdapter;
+import xyz.winmyataung.movie_shelf.delegates.MoviesActionDelegates;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MoviesActionDelegates {
 
     public static Intent newIntent(Context context){
         Intent intent=new Intent(context,MainActivity.class );
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });*/
 
-        moviesAdapter = new MoviesAdapter();
+        moviesAdapter = new MoviesAdapter(this);
 
         LinearLayoutManager linearLayoutManager= new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false);
         rvMovies.setLayoutManager(linearLayoutManager);
@@ -91,5 +91,18 @@ public class MainActivity extends AppCompatActivity {
     public void onTabFab(View view) {
         Snackbar.make(view, "Replace with your own action - ButterKnife", Snackbar.LENGTH_INDEFINITE)
                 .setAction("Action", null).show();
+    }
+
+    @Override
+    public void onTapMoviesItem() {
+
+        Intent intent = new Intent(getApplicationContext(),MoviesDetailsActivity.class);
+        startActivity(intent);
+
+    }
+
+    @Override
+    public void onTapMoviesOverview() {
+
     }
 }
