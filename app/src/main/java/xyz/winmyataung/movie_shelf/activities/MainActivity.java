@@ -9,22 +9,31 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.EventLog;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.RelativeLayout;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import xyz.winmyataung.movie_shelf.PopularMoviesApp;
 import xyz.winmyataung.movie_shelf.R;
 import xyz.winmyataung.movie_shelf.adapters.MoviesAdapter;
+import xyz.winmyataung.movie_shelf.data.model.MoviesModel;
 import xyz.winmyataung.movie_shelf.delegates.MoviesActionDelegates;
+import xyz.winmyataung.movie_shelf.events.LoadedMoviesEvent;
 
 public class MainActivity extends AppCompatActivity implements MoviesActionDelegates {
 
-    public static Intent newIntent(Context context){
-        Intent intent=new Intent(context,MainActivity.class );
+    public static Intent newIntent(Context context) {
+           Intent intent = new Intent(context, MainActivity.class);
         return intent;
     }
 
@@ -60,9 +69,23 @@ public class MainActivity extends AppCompatActivity implements MoviesActionDeleg
 
         moviesAdapter = new MoviesAdapter(this);
 
-        LinearLayoutManager linearLayoutManager= new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
         rvMovies.setLayoutManager(linearLayoutManager);
         rvMovies.setAdapter(moviesAdapter);
+
+        MoviesModel.getObjInstance().loadMovies();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
     }
 
     @Override
@@ -70,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements MoviesActionDeleg
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+
     }
 
     @Override
@@ -96,13 +120,18 @@ public class MainActivity extends AppCompatActivity implements MoviesActionDeleg
     @Override
     public void onTapMoviesItem() {
 
-        Intent intent = new Intent(getApplicationContext(),MoviesDetailsActivity.class);
+        Intent intent = new Intent(getApplicationContext(), MoviesDetailsActivity.class);
         startActivity(intent);
 
     }
 
     @Override
     public void onTapMoviesOverview() {
+    }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMoviesLoaded(LoadedMoviesEvent event){
 
+        Log.d(PopularMoviesApp.LOG_TAG,"onMoviesLoaded : "+event.getMoviesList());
+        moviesAdapter.setMovies(event.getMoviesList());
     }
 }

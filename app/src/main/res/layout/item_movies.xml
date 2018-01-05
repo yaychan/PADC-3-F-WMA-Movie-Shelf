@@ -23,6 +23,7 @@
             android:src="@drawable/it_movie_poster" />
 
         <TextView
+            android:id="@+id/tv_vote_average"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -67,7 +68,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_movie_genre"
-
             android:layout_marginTop="8dp"
             android:layout_toRightOf="@id/iv_movie_poster"
             android:text="Current Popularity"
