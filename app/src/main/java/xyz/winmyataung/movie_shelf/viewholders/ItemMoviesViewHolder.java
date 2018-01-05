@@ -56,7 +56,7 @@ public class ItemMoviesViewHolder extends RecyclerView.ViewHolder {
       /*  tvMovieGenre.setText(String.valueOf(movies.getGenreIds()));
         tvVoteAverage.setText(String.valueOf(movies.getVoteAverage()));*/
 
-        Glide.with(tvMovieTitle.getContext())
+        Glide.with(ivMoviePoster.getContext())
                 .load(movies.getPosterPath())
                 .into(ivMoviePoster);
     }
